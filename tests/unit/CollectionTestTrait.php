@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
-namespace tests;
+namespace tests\unit;
 
 /**
  * Collection Trait test suite.

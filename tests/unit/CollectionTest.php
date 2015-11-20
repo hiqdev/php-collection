@@ -9,7 +9,9 @@
  * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
-namespace tests;
+namespace tests\unit;
+
+use hiqdev\php\collection\CollectionTrait;
 
 /**
  * Collection test suite.
@@ -36,5 +38,5 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
 
 class NewCollection
 {
-    use \hiqdev\php\collection\CollectionTrait;
+    use CollectionTrait;
 }

@@ -42,6 +42,9 @@
             "homepage": "http://hiqdev.com/"
         }
     ],
+    "require-dev": {
+        "phpunit/phpunit": "~4.4"
+    },
     "autoload": {
         "psr-4": {
             "hiqdev\\php\\collection\\": "src"
