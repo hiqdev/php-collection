@@ -11,9 +11,6 @@
 
 namespace hiqdev\php\collection;
 
-use ArrayAccess;
-use ArrayIterator;
-
 /**
  * Collection Trait.
  * Array inside of object.
@@ -139,70 +136,6 @@ trait CollectionTrait
     public function __unset($name)
     {
         $this->unsetItem($name);
-    }
-
-    /**
-     * Returns the element at the specified offset.
-     * This method is required by the SPL interface `ArrayAccess`.
-     * It is implicitly called when you use something like `$value = $collection[$offset];`.
-     *
-     * @param mixed $offset the offset to retrieve element.
-     *
-     * @return mixed the element at the offset, null if no element is found at the offset
-     */
-    public function offsetGet($offset)
-    {
-        return $this->getItem($offset);
-    }
-
-    /**
-     * Sets the element at the specified offset.
-     * This method is required by the SPL interface `ArrayAccess`.
-     * It is implicitly called when you use something like `$collection[$offset] = $value;`.
-     *
-     * @param int   $offset the offset to set element
-     * @param mixed $value  the element value
-     */
-    public function offsetSet($offset, $value)
-    {
-        $this->setItem($offset, $value);
-    }
-
-    /**
-     * Returns whether there is an element at the specified offset.
-     * This method is required by the SPL interface `ArrayAccess`.
-     * It is implicitly called when you use something like `isset($collection[$offset])`.
-     *
-     * @param mixed $offset the offset to check on
-     *
-     * @return bool
-     */
-    public function offsetExists($offset)
-    {
-        return $this->hasItem($offset);
-    }
-
-    /**
-     * Sets the element value at the specified offset to null.
-     * This method is required by the SPL interface ArrayAccess.
-     * It is implicitly called when you use something like `unset($collection[$offset])`.
-     *
-     * @param mixed $offset the offset to unset element
-     */
-    public function offsetUnset($offset)
-    {
-        $this->unsetItem($offset);
-    }
-
-    /**
-     * Method for IteratorAggregate interface.
-     * Enables foreach'ing the object.
-     *
-     * @return ArrayIterator
-     */
-    public function getIterator()
-    {
-        return new ArrayIterator($this->_items);
     }
 
 }
