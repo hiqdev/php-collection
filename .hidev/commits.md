@@ -3,6 +3,15 @@ hiqdev/php-collection commits history
 
 ## 0.0.3 Under development
 
+- Redone to `php-collection`
+    - 373b061 2015-11-20 exposed tests namespace (sol@hiqdev.com)
+    - c407507 2015-11-20 offset functions and getIterator moved to BaseTrait (sol@hiqdev.com)
+    - b81be9d 2015-11-20 fixed tests bootstrap (sol@hiqdev.com)
+    - 2d6f2c2 2015-11-20 fixed tests (sol@hiqdev.com)
+    - 7c9803a 2015-11-20 trying phpunit (sol@hiqdev.com)
+    - c9ea8d7 2015-11-20 merged (sol@hiqdev.com)
+    - af9048f 2015-11-20 Fixed autoloader for unit tests (d.naumenko.a@gmail.com)
+    - 59e5733 2015-11-20 redoing to `php-collection` (sol@hiqdev.com)
     - 7ea0de7 2015-11-20 fixed namespace (sol@hiqdev.com)
     - 8c44704 2015-11-20 moved to src (sol@hiqdev.com)
     - 1d5aba0 2015-11-05 BaseTrait::keys() - fixed returning type in PHPDoc (d.naumenko.a@gmail.com)
