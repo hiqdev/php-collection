@@ -1,5 +1,5 @@
-hiqdev/yii2-collection commits history
---------------------------------------
+hiqdev/php-collection commits history
+-------------------------------------
 
 ## 0.0.3 Under development
 

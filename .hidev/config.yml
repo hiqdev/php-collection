@@ -1,10 +1,10 @@
 package:
-    type:           yii2-extension
-    name:           yii2-collection
-    namespace:      hiqdev\yii2\collection
-    headline:       Yii2 Collection
-    title:          Collection library for Yii2
-    keywords:       collection, extension, yii2
+    type:           library
+    name:           php-collection
+    namespace:      hiqdev\php\collection
+    headline:       PHP Collection
+    title:          Collection library for PHP
+    keywords:       collection, library, php
     year:           2015
 
 require:

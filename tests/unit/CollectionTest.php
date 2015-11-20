@@ -9,38 +9,32 @@
  * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
-namespace hiqdev\collection\tests\unit;
-
-use Yii;
+namespace tests;
 
 /**
- * Component test suite.
+ * Collection test suite.
  */
-class ComponentTest extends \yii\codeception\TestCase
+class CollectionTest extends \PHPUnit_Framework_TestCase
 {
     use CollectionTestTrait;
 
     /**
-     * @var NewComponent
+     * @var NewCollection
      */
     protected $sample;
 
     protected function setUp()
     {
-        //parent::setUp();
-        $this->sample = Yii::createObject([
-            'class' => NewComponent::className(),
-            'items' => $this->items,
-        ]);
+        $this->sample = new NewCollection;
     }
 
     protected function tearDown()
     {
-        //parent::tearDown();
         $this->sample = null;
     }
 }
 
-class NewComponent extends \hiqdev\collection\Component
+class NewCollection
 {
+    use \hiqdev\php\collection\CollectionTrait;
 }

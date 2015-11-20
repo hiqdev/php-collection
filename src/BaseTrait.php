@@ -9,15 +9,15 @@
  * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
-namespace hiqdev\collection;
+namespace hiqdev\php\collection;
+
+use ArrayIterator;
 
 /**
  * Base Trait.
  */
 trait BaseTrait
 {
-    use \yii\base\ArrayableTrait;
-
     /**
      * @var array default items
      */
@@ -27,8 +27,6 @@ trait BaseTrait
      * @var array items
      */
     protected $_items = [];
-
-/// Item methods
 
     /**
      * Straight put an item.
@@ -58,37 +56,6 @@ trait BaseTrait
     }
 
     /**
-     * Sets an item. Silently resets if already exists and mov.
-     *
-     * Where can be:
-     * - '' - anywhere, default and fastest method
-     * - 'first' - puts it exactly first
-     * - 'last' - puts it exactly last
-     * - array of before and/or after conditions like: ['before' => 'd','after' => ['a','b']]
-     *
-     * @param string       $name  item name.
-     * @param array        $value item value.
-     * @param string|array $where where to put, see description.
-     */
-    public function setItem($name, $value = null, $where = '')
-    {
-        /// if ($where === 'last' || $this->hasItem($name)) {
-        if ($where === '') {
-            $this->putItem($name, $value);
-        } else {
-            /// rough method: unset and then set, think of better
-            $this->unsetItem($name);
-            if ($where === 'last') {
-                $this->putItem($name, $value);
-            } elseif ($where === 'first') {
-                $this->_items = array_merge([$name => $value], $this->_items);
-            } else {
-                $this->_items = $this->insertInside([$name => $value], $where);
-            }
-        }
-    }
-
-    /**
      * Adds an item. Doesn't touch if already exists.
      *
      * @param string       $name  item name.
@@ -104,6 +71,34 @@ trait BaseTrait
         }
 
         return $this;
+    }
+
+    /**
+     * Sets an item. Silently resets if already exists and mov.
+     *
+     * @param string       $name  item name.
+     * @param array        $value item value.
+     * @param string|array $where where to put, can be empty, first, last and array of before and after
+     */
+    public function setItem($name, $value = null, $where = '')
+    {
+        if ($name === null || $where === '') {
+            $this->putItem($name, $value);
+        } else {
+            $this->setItems([$name => $value], $where);
+        }
+    }
+
+    public function mergeItem($name, array $value)
+    {
+        if (!is_null($name)) {
+            $this->_items[$name] = Helper::merge($this->_items[$name], $value);
+        }
+    }
+
+    public function mergeItems(array $items)
+    {
+        $this->_items = Helper::merge($this->_items, $items);
     }
 
     /**
@@ -140,8 +135,6 @@ trait BaseTrait
         unset($this->_items[$name]);
     }
 
-/// Items methods
-
     /**
      * Straight put items.
      *
@@ -157,7 +150,7 @@ trait BaseTrait
     }
 
     /**
-     * Set them all!
+     * Adds items to specified place.
      *
      * @param array $items list of items
      * @param mixed $where
@@ -168,25 +161,19 @@ trait BaseTrait
     {
         if (!$items) {
             return;
-        }
-        if ($where === '') {
+        } elseif ($where === '') {
             $this->putItems($items);
+        } elseif ($where === 'last') {
+            $this->_items = Helper::insertLast  ($this->_items, $items);
+        } elseif ($where === 'first') {
+            $this->_items = Helper::insertFirst ($this->_items, $items);
         } else {
-            foreach ($items as $k => $v) {
-                $this->unsetItem($k);
-            }
-            if ($where === 'last') {
-                $this->putItems($items);
-            } elseif ($where === 'first') {
-                $this->_items = array_merge($items, $this->_items);
-            } else {
-                $this->_items = $this->insertInside($items, $where);
-            }
+            $this->_items = Helper::insertInside($this->_items, $items, $where);
         }
     }
 
     /**
-     * Adds array of items to specified place.
+     * Adds items to specified place.
      * Does not touch those items that already exists.
      *
      * @param array        $items array of items.
@@ -208,79 +195,6 @@ trait BaseTrait
         }
 
         return $this;
-    }
-
-/// normal methods
-
-    /**
-     * Returns property of item by name.
-     *
-     * @param mixed $name
-     *
-     * @return mixed
-     */
-    public function get($name)
-    {
-        return $this->__get($name);
-    }
-
-    /**
-     * Sets an item. Silently resets if already exists.
-     *
-     * @param int|string   $name
-     * @param mixed        $value the element value
-     * @param string|array $where where to put, see [[setItem()]]
-     *
-     * @see setItem()
-     */
-    public function set($name, $value, $where = '')
-    {
-        if ($name && $this->canSetProperty($name)) {
-            parent::__set($name, $value);
-        } else {
-            $this->setItem($name, $value, $where);
-        }
-    }
-
-    /**
-     * Adds an item. Does not touch if already exists.
-     *
-     * @param int|string   $name  item name.
-     * @param array        $value item value.
-     * @param string|array $where where to put, see [[setItem()]]
-     *
-     * @return $this for chaining
-     *
-     * @see setItem()
-     */
-    public function add($name, $value = null, $where = '')
-    {
-        if (!$this->has($name)) {
-            $this->set($name, $value, $where);
-        }
-
-        return $this;
-    }
-    /**
-     * Check collection has the item.
-     *
-     * @param string $name item name.
-     *
-     * @return bool whether item exist.
-     */
-    public function has($name)
-    {
-        return ($name && $this->hasProperty($name)) || $this->hasItem($name);
-    }
-
-    /**
-     * Delete an item.
-     *
-     * @param $name
-     */
-    public function delete($name)
-    {
-        $this->__unset($name);
     }
 
     /**
@@ -306,112 +220,6 @@ trait BaseTrait
 
         return array_combine($fields, $fields);
     }
-
-    /**
-     * Sets multiple items.
-     *
-     * @param array $values
-     */
-    public function mset(array $values)
-    {
-        foreach ($values as $k => $v) {
-            $this->set($k, $v);
-        }
-    }
-
-    /**
-     * Internal function to prepare new list of items with given items inserted inside.
-     *
-     * @param array        $items array of items.
-     * @param string|array $where where to insert, see [[add()]]
-     *
-     * @return array new items list
-     *
-     * @see add()
-     */
-    protected function insertInside($items, $where)
-    {
-        $before = $this->prepareWhere($where['before']);
-        $after  = $this->prepareWhere($where['after']);
-        $new    = [];
-        $found  = false;
-        /// TODO think of realizing it better
-        foreach ($this->_items as $k => $v) {
-            if (!$found && $k === $before) {
-                foreach ($items as $i => $c) {
-                    $new[$i] = $c;
-                }
-                $found = true;
-            }
-            $new[$k] = $v;
-            if (!$found && $k === $after) {
-                foreach ($items as $i => $c) {
-                    $new[$i] = $c;
-                }
-                $found = true;
-            }
-        }
-        if (!$found) {
-            foreach ($items as $i => $c) {
-                $new[$i] = $c;
-            }
-        }
-
-        return $new;
-    }
-
-    /**
-     * Internal function to prepare where list for insertInside.
-     *
-     * @param array|string $list array to convert
-     *
-     * @return array
-     */
-    protected function prepareWhere($list)
-    {
-        if (!is_array($list)) {
-            $list = [$list];
-        }
-        foreach ($list as $v) {
-            if ($this->has($v)) {
-                return $v;
-            }
-        }
-
-        return;
-    }
-
-/// smart methods
-
-    /**
-     * Sets one after another.
-     *
-     * @param array  $items
-     * @param string $after
-     */
-    public function smartSet(array $items, $after = '')
-    {
-        foreach ($items as $k => $v) {
-            $this->setItem($k, $v, $after);
-            $after = ['after' => $k];
-        }
-    }
-
-    /**
-     * Adds one after another.
-     *
-     * @param array  $items
-     * @param string $after
-     */
-    public function smartAdd(array $items, $after = '')
-    {
-        foreach ($items as $k => $v) {
-            $this->add($k, $v, $after);
-            $after = ['after' => $k];
-        }
-    }
-
-/// magic methods
 
     /**
      * This method is overridden to support accessing items like properties.
@@ -472,8 +280,6 @@ trait BaseTrait
         }
     }
 
-/// ArrayAccess and IteratorAggregate methods
-
     /**
      * Returns the element at the specified offset.
      * This method is required by the SPL interface `ArrayAccess`.
@@ -531,11 +337,11 @@ trait BaseTrait
      * Method for IteratorAggregate interface.
      * Enables foreach'ing the object.
      *
-     * @return \ArrayIterator
+     * @return ArrayIterator
      */
     public function getIterator()
     {
-        return new \ArrayIterator($this->_items);
+        return new ArrayIterator($this->_items);
     }
 
     /**

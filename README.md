@@ -1,26 +1,26 @@
-Yii2 Collection
-===============
+PHP Collection
+==============
 
-**Collection library for Yii2**
+**Collection library for PHP**
 
-[![Latest Stable Version](https://poser.pugx.org/hiqdev/yii2-collection/v/stable)](//packagist.org/packages/hiqdev/yii2-collection)
-[![Total Downloads](https://poser.pugx.org/hiqdev/yii2-collection/downloads)](//packagist.org/packages/hiqdev/yii2-collection)
-[![Dependency Status](https://www.versioneye.com/php/hiqdev:yii2-collection/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:yii2-collection/dev-master)
+[![Latest Stable Version](https://poser.pugx.org/hiqdev/php-collection/v/stable)](//packagist.org/packages/hiqdev/php-collection)
+[![Total Downloads](https://poser.pugx.org/hiqdev/php-collection/downloads)](//packagist.org/packages/hiqdev/php-collection)
+[![Dependency Status](https://www.versioneye.com/php/hiqdev:php-collection/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:php-collection/dev-master)
 
 ## Installation
 
-The preferred way to install this yii2-extension is through [composer](http://getcomposer.org/download/).
+The preferred way to install this library is through [composer](http://getcomposer.org/download/).
 
 Either run
 
 ```sh
-php composer.phar require "hiqdev/yii2-collection"
+php composer.phar require "hiqdev/php-collection"
 ```
 
 or add
 
 ```json
-"hiqdev/yii2-collection": "*"
+"hiqdev/php-collection": "*"
 ```
 
 to the require section of your composer.json.

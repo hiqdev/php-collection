@@ -1,5 +1,5 @@
-hiqdev/yii2-collection changelog
---------------------------------
+hiqdev/php-collection changelog
+-------------------------------
 
 ## 0.0.3 Under development
 
