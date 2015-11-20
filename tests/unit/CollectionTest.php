@@ -9,9 +9,9 @@
  * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
-namespace tests\unit;
+namespace hiqdev\php\collection\tests\unit;
 
-use hiqdev\php\collection\CollectionTrait;
+use hiqdev\php\collection\Collection;
 
 /**
  * Collection test suite.
@@ -21,22 +21,17 @@ class CollectionTest extends \PHPUnit_Framework_TestCase
     use CollectionTestTrait;
 
     /**
-     * @var NewCollection
+     * @var Collection
      */
     protected $sample;
 
     protected function setUp()
     {
-        $this->sample = new NewCollection;
+        $this->sample = new Collection($this->items);
     }
 
     protected function tearDown()
     {
         $this->sample = null;
     }
-}
-
-class NewCollection
-{
-    use CollectionTrait;
 }

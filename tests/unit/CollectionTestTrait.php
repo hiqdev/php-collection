@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
  */
 
-namespace tests\unit;
+namespace hiqdev\php\collection\tests\unit;
 
 /**
  * Collection Trait test suite.
@@ -20,6 +20,7 @@ trait CollectionTestTrait
      * @var array items
      */
     protected $items = [
+        'first'   => 'first',
         'null'    => null,
         'zero'    => [],
         'empty'   => [],
@@ -46,14 +47,14 @@ trait CollectionTestTrait
     public function testHas()
     {
         foreach ($this->items as $k => $v) {
-            $this->assertTrue($this->sample->has($k));
+            $this->assertTrue($this->sample->hasItem($k));
         };
     }
 
     public function testHasNot()
     {
-        $this->assertFalse($this->sample->has('unexistent'));
-        $this->assertFalse($this->sample->has(''));
+        $this->assertFalse($this->sample->hasItem('unexistent'));
+        $this->assertFalse($this->sample->hasItem(''));
     }
 
     public function testEmptyName()
@@ -72,46 +73,44 @@ trait CollectionTestTrait
 
     public function testSetNew()
     {
-        $this->sample->set($this->newkey, $this->value);
-        $this->assertTrue($this->sample->has($this->newkey));
-        $this->assertEquals($this->value, $this->sample->get($this->newkey));
+        $this->sample->setItem($this->newkey, $this->value);
+        $this->assertTrue($this->sample->hasItem($this->newkey));
         $this->assertEquals($this->value, $this->sample->getItem($this->newkey));
     }
 
     public function testSetExisting()
     {
-        $this->sample->set($this->existing, $this->value);
+        $this->sample->setItem($this->existing, $this->value);
         $this->assertEquals(array_keys($this->items), $this->sample->keys());
-        $this->assertEquals($this->value, $this->sample->get($this->existing));
         $this->assertEquals($this->value, $this->sample->getItem($this->existing));
     }
 
     public function testSetFirst()
     {
-        $this->sample->set($this->existing, $this->value, 'first');
+        $this->sample->setItem($this->existing, $this->value, 'first');
         $keys = array_keys($this->items);
         $keys = array_combine($keys, $keys);
         unset($keys[$this->existing]);
         $keys = array_merge([$this->existing], array_values($keys));
         $this->assertEquals($keys, $this->sample->keys());
-        $this->assertEquals($this->value, $this->sample->get($this->existing));
+        $this->assertEquals($this->value, $this->sample->getItem($this->existing));
     }
 
     public function testSetLast()
     {
-        $this->sample->set($this->existing, $this->value, 'last');
+        $this->sample->setItem($this->existing, $this->value, 'last');
         $keys = array_keys($this->items);
         $keys = array_combine($keys, $keys);
         unset($keys[$this->existing]);
         $keys = array_merge(array_values($keys), [$this->existing]);
         $this->assertEquals($keys, $this->sample->keys());
-        $this->assertEquals($this->value, $this->sample->get($this->existing));
+        $this->assertEquals($this->value, $this->sample->getItem($this->existing));
     }
 
     public function testDelete()
     {
         $this->sample->delete('zero');
-        $this->assertFalse($this->sample->has('zero'));
+        $this->assertFalse($this->sample->hasItem('zero'));
     }
 
     public function testDeleteAll()
@@ -120,7 +119,7 @@ trait CollectionTestTrait
             $this->sample->delete($k);
         }
         foreach ($this->items as $k => $v) {
-            $this->assertFalse($this->sample->has($k));
+            $this->assertFalse($this->sample->hasItem($k));
         }
         $this->assertEquals([], $this->sample->keys());
     }
@@ -156,5 +155,27 @@ trait CollectionTestTrait
             $keys[] = $k;
         }
         $this->assertEquals(array_keys($this->items), $keys);
+    }
+
+    public function testReset()
+    {
+        $array = ['a' => 1, 'b' => 2];
+        $this->sample->resetItems($array);
+        $this->assertEquals($this->sample->getItems(), $array);
+    }
+
+    public function testUnsetAll()
+    {
+        $this->sample->unsetItems();
+        $this->assertEquals($this->sample->getItems(), []);
+    }
+
+    public function testUnset()
+    {
+        $this->sample->unsetItems($this->existing);
+        $this->assertFalse($this->sample->hasItem($this->existing));
+        $this->sample->unsetItems(['first', 'last']);
+        $this->assertFalse($this->sample->hasItem('first'));
+        $this->assertFalse($this->sample->hasItem('last'));
     }
 }

@@ -89,16 +89,16 @@ trait BaseTrait
         }
     }
 
-    public function mergeItem($name, array $value)
+    /**
+     * Returns item by name.
+     *
+     * @param string $name item name.
+     *
+     * @return mixed item value.
+     */
+    public function getItem($name)
     {
-        if (!is_null($name)) {
-            $this->_items[$name] = Helper::merge($this->_items[$name], $value);
-        }
-    }
-
-    public function mergeItems(array $items)
-    {
-        $this->_items = Helper::merge($this->_items, $items);
+        return $this->_items[$name];
     }
 
     /**
@@ -111,6 +111,13 @@ trait BaseTrait
     public function hasItem($name)
     {
         return array_key_exists($name, $this->_items);
+    }
+
+    public function mergeItem($name, array $value)
+    {
+        if (!is_null($name)) {
+            $this->_items[$name] = Helper::merge($this->_items[$name], $value);
+        }
     }
 
     /**
@@ -135,6 +142,26 @@ trait BaseTrait
         unset($this->_items[$name]);
     }
 
+    /**
+     * Get specified items as array.
+     *
+     * @param  mixed $keys specification
+     *
+     * @return array list of items
+     */
+    public function getItems($keys = null)
+    {
+        if (is_null($keys)) {
+            return $this->_items;
+        } elseif (is_scalar($keys)) {
+            $keys = [$keys => $this->_items[$keys]];
+        }
+        $res = [];
+        foreach ($keys as $k) {
+            $res[$k] = $this->_items[$k];
+        }
+        return $res;
+    }
     /**
      * Straight put items.
      *
@@ -197,6 +224,35 @@ trait BaseTrait
         return $this;
     }
 
+    public function mergeItems(array $items)
+    {
+        $this->_items = Helper::merge($this->_items, $items);
+    }
+
+    /**
+     * Unset specified items.
+     *
+     * @param  mixed $keys specification
+     *
+     * @return array list of items
+     */
+    public function unsetItems($keys = null)
+    {
+        if (is_null($keys)) {
+            $this->_items = [];
+        } elseif (is_scalar($keys)) {
+            unset($this->_items[$keys]);
+        } else {
+            foreach ($keys as $k) {
+                unset($this->_items[$k]);
+            }
+        }
+    }
+
+    public function resetItems(array $items)
+    {
+        $this->_items = $items;
+    }
     /**
      * Get keys.
      *
@@ -219,129 +275,6 @@ trait BaseTrait
         $fields = $this->keys();
 
         return array_combine($fields, $fields);
-    }
-
-    /**
-     * This method is overridden to support accessing items like properties.
-     *
-     * @param string $name item or property name
-     *
-     * @return mixed item of found or the named property value
-     */
-    public function __get($name)
-    {
-        if ($name && $this->canGetProperty($name)) {
-            return parent::__get($name);
-        } else {
-            return $this->getItem($name);
-        }
-    }
-
-    /**
-     * This method is overridden to support accessing items like properties.
-     *
-     * @param string $name  item or property name
-     * @param string $value value to be set
-     *
-     * @return mixed item of found or the named property value
-     */
-    public function __set($name, $value)
-    {
-        $this->set($name, $value);
-    }
-
-    /**
-     * Checks if a property value is null.
-     * This method overrides the parent implementation by checking if the named item is loaded.
-     *
-     * @param string $name the property name or the event name
-     *
-     * @return bool whether the property value is null
-     */
-    public function __isset($name)
-    {
-        return ($name && parent::__isset($name)) || $this->issetItem($name);
-    }
-
-    /**
-     * Checks if a property value is null.
-     * This method overrides the parent implementation by checking if the named item is loaded.
-     *
-     * @param string $name the property name or the event name
-     *
-     * @return bool whether the property value is null
-     */
-    public function __unset($name)
-    {
-        if ($name && $this->canSetProperty($name)) {
-            parent::__unset($name);
-        } else {
-            $this->unsetItem($name);
-        }
-    }
-
-    /**
-     * Returns the element at the specified offset.
-     * This method is required by the SPL interface `ArrayAccess`.
-     * It is implicitly called when you use something like `$value = $collection[$offset];`.
-     *
-     * @param mixed $offset the offset to retrieve element.
-     *
-     * @return mixed the element at the offset, null if no element is found at the offset
-     */
-    public function offsetGet($offset)
-    {
-        return $this->getItem($offset);
-    }
-
-    /**
-     * Sets the element at the specified offset.
-     * This method is required by the SPL interface `ArrayAccess`.
-     * It is implicitly called when you use something like `$collection[$offset] = $value;`.
-     *
-     * @param int   $offset the offset to set element
-     * @param mixed $value  the element value
-     */
-    public function offsetSet($offset, $value)
-    {
-        $this->setItem($offset, $value);
-    }
-
-    /**
-     * Returns whether there is an element at the specified offset.
-     * This method is required by the SPL interface `ArrayAccess`.
-     * It is implicitly called when you use something like `isset($collection[$offset])`.
-     *
-     * @param mixed $offset the offset to check on
-     *
-     * @return bool
-     */
-    public function offsetExists($offset)
-    {
-        return $this->hasItem($offset);
-    }
-
-    /**
-     * Sets the element value at the specified offset to null.
-     * This method is required by the SPL interface `ArrayAccess`.
-     * It is implicitly called when you use something like `unset($collection[$offset])`.
-     *
-     * @param mixed $offset the offset to unset element
-     */
-    public function offsetUnset($offset)
-    {
-        $this->unsetItem($offset);
-    }
-
-    /**
-     * Method for IteratorAggregate interface.
-     * Enables foreach'ing the object.
-     *
-     * @return ArrayIterator
-     */
-    public function getIterator()
-    {
-        return new ArrayIterator($this->_items);
     }
 
     /**

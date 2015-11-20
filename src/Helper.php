@@ -64,7 +64,10 @@ class Helper
         foreach ($items as $k => $v) {
             unset($array[$k]);
         }
-        $array = array_merge($items, $array);
+        foreach ($items as $k => $v) {
+            $array[$k] = $v;
+        }
+
         return $array;
     }
 
@@ -77,9 +80,7 @@ class Helper
         foreach ($items as $k => $v) {
             unset($array[$k]);
         }
-        foreach ($items as $k => $v) {
-            $array[$k] = $v;
-        }
+        $array = array_merge($items, $array);
 
         return $array;
     }
