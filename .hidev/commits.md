@@ -3,10 +3,13 @@ hiqdev/php-collection commits history
 
 ## 0.0.3 Under development
 
+- Added `ArrayHelper`
+    - 9992ccb 2015-11-21 + tests for ArrayHelper (sol@hiqdev.com)
+    - bb1c058 2015-11-21 + ArrayHelper::toArray (sol@hiqdev.com)
     - b68dc74 2015-11-21 fixed typo (sol@hiqdev.com)
-- Redone to `php-collection`
     - fd4b650 2015-11-21 php-cs-fixed (sol@hiqdev.com)
     - 2a00b6e 2015-11-21 added `ArrayHelper::unique()` (sol@hiqdev.com)
+- Redone to `php-collection`
     - 373b061 2015-11-20 exposed tests namespace (sol@hiqdev.com)
     - c407507 2015-11-20 offset functions and getIterator moved to BaseTrait (sol@hiqdev.com)
     - b81be9d 2015-11-20 fixed tests bootstrap (sol@hiqdev.com)

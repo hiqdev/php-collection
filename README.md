@@ -5,7 +5,6 @@ PHP Collection
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/php-collection/v/stable)](//packagist.org/packages/hiqdev/php-collection)
 [![Total Downloads](https://poser.pugx.org/hiqdev/php-collection/downloads)](//packagist.org/packages/hiqdev/php-collection)
-[![Dependency Status](https://www.versioneye.com/php/hiqdev:php-collection/dev-master/badge.svg)](https://www.versioneye.com/php/hiqdev:php-collection/dev-master)
 
 ## Installation
 

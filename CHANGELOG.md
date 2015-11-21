@@ -3,6 +3,7 @@ hiqdev/php-collection changelog
 
 ## 0.0.3 Under development
 
+- Added `ArrayHelper`
 - Redone to `php-collection`
 
 ## 0.0.2 June 19, 2015
