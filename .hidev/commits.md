@@ -3,6 +3,7 @@ hiqdev/php-collection commits history
 
 ## 0.0.3 Under development
 
+    - b68dc74 2015-11-21 fixed typo (sol@hiqdev.com)
 - Redone to `php-collection`
     - fd4b650 2015-11-21 php-cs-fixed (sol@hiqdev.com)
     - 2a00b6e 2015-11-21 added `ArrayHelper::unique()` (sol@hiqdev.com)
