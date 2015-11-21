@@ -11,7 +11,7 @@
 
 namespace hiqdev\php\collection;
 
-class Helper
+class ArrayHelper
 {
     /**
      * Recursive safe merge.
@@ -153,4 +153,39 @@ class Helper
         return null;
     }
 
+    /**
+     * Recursively removes duplicate values from non-associative arrays.
+     */
+    public static function unique($array)
+    {
+        $suitable = true;
+        foreach ($array as $k => &$v) {
+            if (is_array($v)) {
+                $v = self::uniqueConfig($v);
+            } elseif (!is_int($k)) {
+                $suitable = false;
+            }
+        }
+
+        return $suitable ? static::uniqueFlat($array) : $array;
+    }
+
+    /**
+     * Non-recursively removes duplicate values from non-associative arrays.
+     */
+    public static function uniqueFlat($array)
+    {
+        $uniqs = [];
+        $res = [];
+        foreach ($array as $k => $v) {
+            $uv = serialize($v);
+            if (array_key_exists($uv, $uniqs)) {
+                continue;
+            }
+            $uniqs[$uv] = 1;
+            $res[$k] = $v;
+        }
+
+        return $res;
+    }
 }

@@ -116,7 +116,7 @@ trait BaseTrait
     public function mergeItem($name, array $value)
     {
         if (!is_null($name)) {
-            $this->_items[$name] = Helper::merge($this->_items[$name], $value);
+            $this->_items[$name] = ArrayHelper::merge($this->_items[$name], $value);
         }
     }
 
@@ -191,11 +191,11 @@ trait BaseTrait
         } elseif ($where === '') {
             $this->putItems($items);
         } elseif ($where === 'last') {
-            $this->_items = Helper::insertLast  ($this->_items, $items);
+            $this->_items = ArrayHelper::insertLast  ($this->_items, $items);
         } elseif ($where === 'first') {
-            $this->_items = Helper::insertFirst ($this->_items, $items);
+            $this->_items = ArrayHelper::insertFirst ($this->_items, $items);
         } else {
-            $this->_items = Helper::insertInside($this->_items, $items, $where);
+            $this->_items = ArrayHelper::insertInside($this->_items, $items, $where);
         }
     }
 
@@ -226,7 +226,7 @@ trait BaseTrait
 
     public function mergeItems(array $items)
     {
-        $this->_items = Helper::merge($this->_items, $items);
+        $this->_items = ArrayHelper::merge($this->_items, $items);
     }
 
     /**
