@@ -189,4 +189,16 @@ class ArrayHelper
 
         return $res;
     }
+
+    public static function toArray($object)
+    {
+        $res = (array) $object;
+        foreach ($res as $k => &$v) {
+            if (is_object($v)) {
+                $v = self::toArray($v);
+            }
+        }
+
+        return $res;
+    }
 }
