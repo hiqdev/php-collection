@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Collection Library for Yii2
+ * Collection library for PHP
  *
- * @link      https://github.com/hiqdev/yii2-collection
- * @package   yii2-collection
+ * @link      https://github.com/hiqdev/php-collection
+ * @package   php-collection
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
  */
 
 namespace hiqdev\php\collection;
@@ -15,7 +15,7 @@ class ArrayHelper
 {
     /**
      * Recursive safe merge.
-     * Based on Yii2 yii\helpers\BaseArrayHelper::merge
+     * Based on Yii2 yii\helpers\BaseArrayHelper::merge.
      *
      * Merges two or more arrays into one recursively.
      * If each array has an element with the same string key value, the latter
@@ -27,6 +27,7 @@ class ArrayHelper
      *
      * @param array $a array to be merged to
      * @param array $b array to be merged from
+     *
      * @return array the merged array
      */
     public static function merge($a, $b)
@@ -57,7 +58,7 @@ class ArrayHelper
 
     /**
      * Inserts items in front of array.
-     * rough method: unset and then set, think of better
+     * rough method: unset and then set, think of better.
      */
     public static function insertLast(array $array, array $items)
     {
@@ -73,7 +74,7 @@ class ArrayHelper
 
     /**
      * Inserts items in front of array.
-     * rough method: unset and then set, think of better
+     * rough method: unset and then set, think of better.
      */
     public static function insertFirst(array $array, array $items)
     {
@@ -87,7 +88,7 @@ class ArrayHelper
 
     /**
      * Inserts items inside of array.
-     * rough method: unset and then set, think of better
+     * rough method: unset and then set, think of better.
      *
      * @param array        $array source array
      * @param array        $items array of items.
@@ -135,7 +136,7 @@ class ArrayHelper
      * Internal function to prepare where list for insertInside.
      *
      * @param array        $array source array
-     * @param array|string $list array to convert
+     * @param array|string $list  array to convert
      *
      * @return array
      */

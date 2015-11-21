@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Collection Library for Yii2
+ * Collection library for PHP
  *
- * @link      https://github.com/hiqdev/yii2-collection
- * @package   yii2-collection
+ * @link      https://github.com/hiqdev/php-collection
+ * @package   php-collection
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
  */
 
 namespace hiqdev\php\collection;

@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Collection Library for Yii2
+ * Collection library for PHP
  *
- * @link      https://github.com/hiqdev/yii2-collection
- * @package   yii2-collection
+ * @link      https://github.com/hiqdev/php-collection
+ * @package   php-collection
  * @license   BSD-3-Clause
- * @copyright Copyright (c) 2015, HiQDev (https://hiqdev.com/)
+ * @copyright Copyright (c) 2015, HiQDev (http://hiqdev.com/)
  */
 
 namespace hiqdev\php\collection;
@@ -145,7 +145,7 @@ trait BaseTrait
     /**
      * Get specified items as array.
      *
-     * @param  mixed $keys specification
+     * @param mixed $keys specification
      *
      * @return array list of items
      */
@@ -191,9 +191,9 @@ trait BaseTrait
         } elseif ($where === '') {
             $this->putItems($items);
         } elseif ($where === 'last') {
-            $this->_items = ArrayHelper::insertLast  ($this->_items, $items);
+            $this->_items = ArrayHelper::insertLast($this->_items, $items);
         } elseif ($where === 'first') {
-            $this->_items = ArrayHelper::insertFirst ($this->_items, $items);
+            $this->_items = ArrayHelper::insertFirst($this->_items, $items);
         } else {
             $this->_items = ArrayHelper::insertInside($this->_items, $items, $where);
         }
@@ -232,7 +232,7 @@ trait BaseTrait
     /**
      * Unset specified items.
      *
-     * @param  mixed $keys specification
+     * @param mixed $keys specification
      *
      * @return array list of items
      */
@@ -278,11 +278,12 @@ trait BaseTrait
     }
 
     /**
-     * Returns number of items in the collection
+     * Returns number of items in the collection.
      *
      * @return int
      */
-    public function count() {
+    public function count()
+    {
         return count($this->_items);
     }
     /**
@@ -348,5 +349,4 @@ trait BaseTrait
     {
         return new ArrayIterator($this->_items);
     }
-
 }
