@@ -162,13 +162,13 @@ class ArrayHelper
         $suitable = true;
         foreach ($array as $k => &$v) {
             if (is_array($v)) {
-                $v = self::uniqueConfig($v);
+                $v = self::unique($v);
             } elseif (!is_int($k)) {
                 $suitable = false;
             }
         }
 
-        return $suitable ? static::uniqueFlat($array) : $array;
+        return $suitable ? self::uniqueFlat($array) : $array;
     }
 
     /**
