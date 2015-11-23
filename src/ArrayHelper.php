@@ -179,7 +179,7 @@ class ArrayHelper
         $uniqs = [];
         $res = [];
         foreach ($array as $k => $v) {
-            $uv = serialize($v);
+            $uv = var_export($v, true);
             if (array_key_exists($uv, $uniqs)) {
                 continue;
             }
