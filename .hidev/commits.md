@@ -1,7 +1,10 @@
 hiqdev/php-collection commits history
 -------------------------------------
 
-## 0.0.3 Under development
+## 0.0.4 Under development
+
+
+## 0.0.3 2015-11-24
 
 - Added `ArrayHelper`
     - 55d5a79 2015-11-23 changed used `var_export` <- serialize in `ArrayHelper::unique` (sol@hiqdev.com)
