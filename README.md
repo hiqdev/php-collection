@@ -5,6 +5,7 @@ PHP Collection
 
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/php-collection/v/stable)](//packagist.org/packages/hiqdev/php-collection)
 [![Total Downloads](https://poser.pugx.org/hiqdev/php-collection/downloads)](//packagist.org/packages/hiqdev/php-collection)
+[![Build Status](https://img.shields.io/travis/hiqdev/php-collection.svg)](http://travis-ci.org/hiqdev/php-collection)
 
 ## Installation
 
