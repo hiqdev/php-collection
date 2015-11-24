@@ -1,8 +1,12 @@
 hiqdev/php-collection changelog
 -------------------------------
 
-## 0.0.4 Under development
+## Under development
 
+
+## 0.0.4 2015-11-24
+
+- Added Travis CI
 
 ## 0.0.3 2015-11-24
 

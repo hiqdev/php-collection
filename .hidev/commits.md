@@ -1,8 +1,13 @@
 hiqdev/php-collection commits history
 -------------------------------------
 
-## 0.0.4 Under development
+## Under development
 
+
+## 0.0.4 2015-11-24
+
+- Added Travis CI
+    - 0794d13 2015-11-24 added Travis CI (sol@hiqdev.com)
 
 ## 0.0.3 2015-11-24
 
