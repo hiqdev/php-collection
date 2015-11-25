@@ -57,6 +57,28 @@ class ArrayHelper
     }
 
     /**
+     * Get specified items as array.
+     *
+     * @param mixed $keys specification
+     *
+     * @return array
+     */
+    public static function getItems($array, $keys = null)
+    {
+        if (is_null($keys)) {
+            return $array;
+        } elseif (is_scalar($keys)) {
+            $keys = [$keys => $array[$keys]];
+        }
+        $res = [];
+        foreach ($keys as $k) {
+            if (array_key_exists($k, $array)) {
+                $res[$k] = $array[$k];
+            }
+        }
+        return $res;
+    }
+    /**
      * Inserts items in front of array.
      * rough method: unset and then set, think of better.
      */

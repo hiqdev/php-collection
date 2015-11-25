@@ -151,17 +151,9 @@ trait BaseTrait
      */
     public function getItems($keys = null)
     {
-        if (is_null($keys)) {
-            return $this->_items;
-        } elseif (is_scalar($keys)) {
-            $keys = [$keys => $this->_items[$keys]];
-        }
-        $res = [];
-        foreach ($keys as $k) {
-            $res[$k] = $this->_items[$k];
-        }
-        return $res;
+        return ArrayHelper::getItems($this->_items, $keys);
     }
+
     /**
      * Straight put items.
      *
