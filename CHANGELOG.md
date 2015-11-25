@@ -3,6 +3,9 @@ hiqdev/php-collection changelog
 
 ## Under development
 
+
+## 0.0.5 2015-11-25
+
 - Added `ArrayHelper::getItems`
 
 ## 0.0.4 2015-11-24

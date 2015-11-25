@@ -3,6 +3,9 @@ hiqdev/php-collection commits history
 
 ## Under development
 
+
+## 0.0.5 2015-11-25
+
 - Added `ArrayHelper::getItems`
     - 4185489 2015-11-25 + ArrayHelper::getItems (sol@hiqdev.com)
 
