@@ -125,8 +125,8 @@ class ArrayHelper
         foreach ($items as $k => $v) {
             unset($array[$k]);
         }
-        $before = self::prepareWhere($array, $where['before']);
-        $after  = self::prepareWhere($array, $where['after']);
+        $before = self::prepareWhere($array, isset($where['before']) ? $where['before'] : null);
+        $after  = self::prepareWhere($array, isset($where['after'])  ? $where['after']  : null);
         $new    = [];
         $found  = false;
         /// TODO think of realizing it better
