@@ -3,6 +3,7 @@ hiqdev/php-collection changelog
 
 ## Under development
 
+- Fixed minor issues
 
 ## 0.0.5 2015-11-25
 
