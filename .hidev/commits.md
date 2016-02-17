@@ -3,6 +3,7 @@ hiqdev/php-collection commits history
 
 ## Under development
 
+    - 7dfb00f 2016-02-17 fixed PHP notice (sol@hiqdev.com)
 
 ## 0.0.5 2015-11-25
 

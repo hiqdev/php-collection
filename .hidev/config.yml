@@ -5,8 +5,7 @@ package:
     headline:       PHP Collection
     title:          Collection library for PHP
     keywords:       collection, library, php
-    year:           2015
 
 require:
     hiqdev/hidev-php:    "*"
-    hiqdev/hidev-hiqdev: "*"
+    hiqdev/hidev-vendor: "*"

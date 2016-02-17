@@ -3,9 +3,11 @@ PHP Collection
 
 **Collection library for PHP**
 
-[![Latest Stable Version](https://poser.pugx.org/hiqdev/php-collection/v/stable)](//packagist.org/packages/hiqdev/php-collection)
-[![Total Downloads](https://poser.pugx.org/hiqdev/php-collection/downloads)](//packagist.org/packages/hiqdev/php-collection)
-[![Build Status](https://img.shields.io/travis/hiqdev/php-collection.svg)](http://travis-ci.org/hiqdev/php-collection)
+[![Latest Stable Version](https://poser.pugx.org/hiqdev/php-collection/v/stable)](https://packagist.org/packages/hiqdev/php-collection)
+[![Total Downloads](https://poser.pugx.org/hiqdev/php-collection/downloads)](https://packagist.org/packages/hiqdev/php-collection)
+[![Build Status](https://img.shields.io/travis/hiqdev/php-collection.svg)](https://travis-ci.org/hiqdev/php-collection)
+[![Code Coverage](https://scrutinizer-ci.com/g/hiqdev/php-collection/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/php-collection/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hiqdev/php-collection/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/php-collection/?branch=master)
 
 ## Installation
 
@@ -30,4 +32,4 @@ to the require section of your composer.json.
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
 Read more [here](http://choosealicense.com/licenses/bsd-3-clause).
 
-Copyright © 2015, HiQDev (http://hiqdev.com/)
+Copyright © 2015-2016, HiQDev (http://hiqdev.com/)
