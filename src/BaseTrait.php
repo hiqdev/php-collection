@@ -178,7 +178,7 @@ trait BaseTrait
      */
     public function setItems($items, $where = '')
     {
-        if (!$items) {
+        if (empty($items)) {
             return;
         } elseif ($where === '') {
             $this->putItems($items);
@@ -209,7 +209,7 @@ trait BaseTrait
                 unset($items[$k]);
             }
         }
-        if ($items) {
+        if (!empty($items)) {
             $this->setItems($items, $where);
         }
 

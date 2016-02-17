@@ -22,7 +22,7 @@ class ArrayHelper
      * will overwrite the former (different from array_merge_recursive).
      * Recursive merging will be conducted if both arrays have an element of array
      * type and are having the same key.
-     * For integer-keyed elements, the elements from the latter array will                    
+     * For integer-keyed elements, the elements from the latter array will
      * be appended to the former array.
      *
      * @param array $a array to be merged to
