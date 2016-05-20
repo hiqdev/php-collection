@@ -1,9 +1,10 @@
 hiqdev/php-collection commits history
 -------------------------------------
 
-## Under development
+## 0.0.6 2016-05-20
 
 - Fixed minor issues
+    - 4b51f7b 2016-05-20 rehideved (sol@hiqdev.com)
     - 5ae398b 2016-02-17 happynized scrutinizer (sol@hiqdev.com)
     - a5f6dd6 2016-02-17 rehideved (sol@hiqdev.com)
     - 7dfb00f 2016-02-17 fixed PHP notice (sol@hiqdev.com)

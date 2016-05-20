@@ -1,7 +1,7 @@
 hiqdev/php-collection changelog
 -------------------------------
 
-## Under development
+## 0.0.6 2016-05-20
 
 - Fixed minor issues
 
