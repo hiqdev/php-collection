@@ -1,6 +1,6 @@
 {
     "name": "hiqdev/php-collection",
-    "type": "yii2-extension",
+    "type": "library",
     "description": "Collection library for PHP",
     "keywords": [
         "collection",
@@ -42,6 +42,10 @@
             "homepage": "http://hiqdev.com/"
         }
     ],
+    "require-dev": {
+        "hiqdev/hidev-php": "*",
+        "hiqdev/hidev-vendor": "*"
+    },
     "autoload": {
         "psr-4": {
             "hiqdev\\php\\collection\\": "src",

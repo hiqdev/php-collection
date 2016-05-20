@@ -1,11 +1,7 @@
 package:
     type:           library
     name:           php-collection
-    namespace:      hiqdev\php\collection
-    headline:       PHP Collection
     title:          Collection library for PHP
+    headline:       PHP Collection
     keywords:       collection, library, php
-
-require:
-    hiqdev/hidev-php:    "*"
-    hiqdev/hidev-vendor: "*"
+    namespace:      hiqdev\php\collection

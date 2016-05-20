@@ -6,8 +6,8 @@ PHP Collection
 [![Latest Stable Version](https://poser.pugx.org/hiqdev/php-collection/v/stable)](https://packagist.org/packages/hiqdev/php-collection)
 [![Total Downloads](https://poser.pugx.org/hiqdev/php-collection/downloads)](https://packagist.org/packages/hiqdev/php-collection)
 [![Build Status](https://img.shields.io/travis/hiqdev/php-collection.svg)](https://travis-ci.org/hiqdev/php-collection)
-[![Code Coverage](https://scrutinizer-ci.com/g/hiqdev/php-collection/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/php-collection/?branch=master)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hiqdev/php-collection/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hiqdev/php-collection/?branch=master)
+[![Scrutinizer Code Coverage](https://img.shields.io/scrutinizer/coverage/g/hiqdev/php-collection.svg)](https://scrutinizer-ci.com/g/hiqdev/php-collection/)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/hiqdev/php-collection.svg)](https://scrutinizer-ci.com/g/hiqdev/php-collection/)
 
 ## Installation
 
