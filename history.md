@@ -1,6 +1,13 @@
 hiqdev/php-collection
 ---------------------
 
+## [Under development]
+
+- Fixed minor issues
+    - [b43d824] 2016-09-22 csfixed [sol@hiqdev.com]
+    - [4243f1e] 2016-09-22 switched to `chkipper` history bumping [sol@hiqdev.com]
+    - [f5f26dd] 2016-09-22 fixed minor issues [sol@hiqdev.com]
+
 ## [0.0.6] - 2016-05-20
 
 - Fixed minor issues
@@ -236,3 +243,6 @@ hiqdev/php-collection
 [e725a84]: https://github.com/hiqdev/php-collection/commit/e725a84
 [fa16f83]: https://github.com/hiqdev/php-collection/commit/fa16f83
 [4ca7b69]: https://github.com/hiqdev/php-collection/commit/4ca7b69
+[f5f26dd]: https://github.com/hiqdev/php-collection/commit/f5f26dd
+[4243f1e]: https://github.com/hiqdev/php-collection/commit/4243f1e
+[b43d824]: https://github.com/hiqdev/php-collection/commit/b43d824
