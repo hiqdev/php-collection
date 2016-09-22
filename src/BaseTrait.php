@@ -15,6 +15,8 @@ use ArrayIterator;
 
 /**
  * Base Trait.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
  */
 trait BaseTrait
 {
@@ -156,9 +158,7 @@ trait BaseTrait
 
     /**
      * Straight put items.
-     *
      * @param array $items list of items
-     *
      * @see setItem
      */
     public function putItems(array $items)
@@ -170,17 +170,16 @@ trait BaseTrait
 
     /**
      * Adds items to specified place.
-     *
      * @param array $items list of items
      * @param mixed $where
-     *
      * @see setItem()
      */
     public function setItems($items, $where = '')
     {
         if (empty($items)) {
             return;
-        } elseif ($where === '') {
+        }
+        if (empty($where)) {
             $this->putItems($items);
         } elseif ($where === 'last') {
             $this->_items = ArrayHelper::insertLast($this->_items, $items);
@@ -194,17 +193,15 @@ trait BaseTrait
     /**
      * Adds items to specified place.
      * Does not touch those items that already exists.
-     *
      * @param array        $items array of items.
      * @param string|array $where where to add. See [[setItem()]]
-     *
      * @return $this for chaining
      *
      * @see setItem()
      */
     public function addItems(array $items, $where = '')
     {
-        foreach ($items as $k => $v) {
+        foreach (array_keys($items) as $k) {
             if (!is_int($k) && $this->hasItem($k)) {
                 unset($items[$k]);
             }
@@ -223,9 +220,7 @@ trait BaseTrait
 
     /**
      * Unset specified items.
-     *
      * @param mixed $keys specification
-     *
      * @return array list of items
      */
     public function unsetItems($keys = null)

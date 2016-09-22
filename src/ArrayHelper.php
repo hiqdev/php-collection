@@ -11,6 +11,11 @@
 
 namespace hiqdev\php\collection;
 
+/**
+ * Array Helper.
+ *
+ * @author Andrii Vasyliev <sol@hiqdev.com>
+ */
 class ArrayHelper
 {
     /**
@@ -27,7 +32,6 @@ class ArrayHelper
      *
      * @param array $a array to be merged to
      * @param array $b array to be merged from
-     *
      * @return array the merged array
      */
     public static function merge($a, $b)
@@ -58,9 +62,7 @@ class ArrayHelper
 
     /**
      * Get specified items as array.
-     *
      * @param mixed $keys specification
-     *
      * @return array
      */
     public static function getItems($array, $keys = null)
@@ -100,7 +102,7 @@ class ArrayHelper
      */
     public static function insertFirst(array $array, array $items)
     {
-        foreach ($items as $k => $v) {
+        foreach (array_keys($items) as $k) {
             unset($array[$k]);
         }
         $array = array_merge($items, $array);
@@ -115,9 +117,7 @@ class ArrayHelper
      * @param array        $array source array
      * @param array        $items array of items.
      * @param string|array $where where to insert
-     *
      * @return array new items list
-     *
      * @see add()
      */
     public static function insertInside(array $array, $items, $where)
@@ -159,7 +159,6 @@ class ArrayHelper
      *
      * @param array        $array source array
      * @param array|string $list  array to convert
-     *
      * @return array
      */
     protected static function prepareWhere(array $array, $list)
@@ -215,7 +214,7 @@ class ArrayHelper
     public static function toArray($object)
     {
         $res = (array) $object;
-        foreach ($res as $k => &$v) {
+        foreach ($res as &$v) {
             if (is_object($v)) {
                 $v = self::toArray($v);
             }
