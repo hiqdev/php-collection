@@ -48,7 +48,11 @@
     },
     "autoload": {
         "psr-4": {
-            "hiqdev\\php\\collection\\": "src",
+            "hiqdev\\php\\collection\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "hiqdev\\php\\collection\\tests\\": "tests"
         }
     }
