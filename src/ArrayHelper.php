@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Collection library for PHP
  *
  * @link      https://github.com/hiqdev/php-collection
@@ -80,6 +79,7 @@ class ArrayHelper
         }
         return $res;
     }
+
     /**
      * Inserts items in front of array.
      * rough method: unset and then set, think of better.
@@ -113,9 +113,8 @@ class ArrayHelper
     /**
      * Inserts items inside of array.
      * rough method: unset and then set, think of better.
-     *
      * @param array        $array source array
-     * @param array        $items array of items.
+     * @param array        $items array of items
      * @param string|array $where where to insert
      * @return array new items list
      * @see add()
@@ -126,7 +125,7 @@ class ArrayHelper
             unset($array[$k]);
         }
         $before = self::prepareWhere($array, isset($where['before']) ? $where['before'] : null);
-        $after  = self::prepareWhere($array, isset($where['after'])  ? $where['after']  : null);
+        $after  = self::prepareWhere($array, isset($where['after']) ? $where['after'] : null);
         $new    = [];
         $found  = false;
         /// TODO think of realizing it better
@@ -156,7 +155,6 @@ class ArrayHelper
 
     /**
      * Internal function to prepare where list for insertInside.
-     *
      * @param array        $array source array
      * @param array|string $list  array to convert
      * @return array

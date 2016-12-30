@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Collection library for PHP
  *
  * @link      https://github.com/hiqdev/php-collection
@@ -32,9 +31,8 @@ trait BaseTrait
 
     /**
      * Straight put an item.
-     *
-     * @param string $name  item name.
-     * @param array  $value item value.
+     * @param string $name  item name
+     * @param array  $value item value
      */
     public function putItem($name, $value = null)
     {
@@ -47,10 +45,8 @@ trait BaseTrait
 
     /**
      * Get raw item.
-     *
-     * @param string $name item name.
-     *
-     * @return mixed item value.
+     * @param string $name item name
+     * @return mixed item value
      */
     public function rawItem($name, $default = null)
     {
@@ -59,11 +55,9 @@ trait BaseTrait
 
     /**
      * Adds an item. Doesn't touch if already exists.
-     *
-     * @param string       $name  item name.
-     * @param array        $value item value.
+     * @param string       $name  item name
+     * @param array        $value item value
      * @param string|array $where where to put, @see setItem
-     *
      * @return $this for chaining
      */
     public function addItem($name, $value = null, $where = '')
@@ -77,9 +71,8 @@ trait BaseTrait
 
     /**
      * Sets an item. Silently resets if already exists and mov.
-     *
-     * @param string       $name  item name.
-     * @param array        $value item value.
+     * @param string       $name  item name
+     * @param array        $value item value
      * @param string|array $where where to put, can be empty, first, last and array of before and after
      */
     public function setItem($name, $value = null, $where = '')
@@ -93,9 +86,9 @@ trait BaseTrait
 
     /**
      * Returns item by name.
-     * @param string $name item name.
-     * @param mixed $default default value.
-     * @return mixed item value or default.
+     * @param string $name item name
+     * @param mixed $default default value
+     * @return mixed item value or default
      */
     public function getItem($name, $default = null)
     {
@@ -104,10 +97,8 @@ trait BaseTrait
 
     /**
      * Check collection has the item.
-     *
-     * @param string $name item name.
-     *
-     * @return bool whether item exist.
+     * @param string $name item name
+     * @return bool whether item exist
      */
     public function hasItem($name)
     {
@@ -123,10 +114,8 @@ trait BaseTrait
 
     /**
      * Check is item set.
-     *
-     * @param string $name item name.
-     *
-     * @return bool whether item is set.
+     * @param string $name item name
+     * @return bool whether item is set
      */
     public function issetItem($name)
     {
@@ -135,7 +124,6 @@ trait BaseTrait
 
     /**
      * Delete an item.
-     *
      * @param $name
      */
     public function unsetItem($name)
@@ -145,9 +133,7 @@ trait BaseTrait
 
     /**
      * Get specified items as array.
-     *
      * @param mixed $keys specification
-     *
      * @return array list of items
      */
     public function getItems($keys = null)
@@ -192,10 +178,9 @@ trait BaseTrait
     /**
      * Adds items to specified place.
      * Does not touch those items that already exists.
-     * @param array        $items array of items.
+     * @param array        $items array of items
      * @param string|array $where where to add. See [[setItem()]]
      * @return $this for chaining
-     *
      * @see setItem()
      */
     public function addItems(array $items, $where = '')
@@ -239,9 +224,9 @@ trait BaseTrait
     {
         $this->_items = $items;
     }
+
     /**
      * Get keys.
-     *
      * @return array for chaining
      */
     public function keys()
@@ -251,9 +236,7 @@ trait BaseTrait
 
     /**
      * The default implementation of this method returns [[attributes()]] indexed by the same attribute names.
-     *
-     * @return array the list of field names or field definitions.
-     *
+     * @return array the list of field names or field definitions
      * @see toArray()
      */
     public function fields()
@@ -265,20 +248,18 @@ trait BaseTrait
 
     /**
      * Returns number of items in the collection.
-     *
      * @return int
      */
     public function count()
     {
         return count($this->_items);
     }
+
     /**
      * Returns the element at the specified offset.
      * This method is required by the SPL interface `ArrayAccess`.
      * It is implicitly called when you use something like `$value = $collection[$offset];`.
-     *
-     * @param mixed $offset the offset to retrieve element.
-     *
+     * @param mixed $offset the offset to retrieve element
      * @return mixed the element at the offset, null if no element is found at the offset
      */
     public function offsetGet($offset)
@@ -290,7 +271,6 @@ trait BaseTrait
      * Sets the element at the specified offset.
      * This method is required by the SPL interface `ArrayAccess`.
      * It is implicitly called when you use something like `$collection[$offset] = $value;`.
-     *
      * @param int   $offset the offset to set element
      * @param mixed $value  the element value
      */
@@ -303,9 +283,7 @@ trait BaseTrait
      * Returns whether there is an element at the specified offset.
      * This method is required by the SPL interface `ArrayAccess`.
      * It is implicitly called when you use something like `isset($collection[$offset])`.
-     *
      * @param mixed $offset the offset to check on
-     *
      * @return bool
      */
     public function offsetExists($offset)
@@ -317,7 +295,6 @@ trait BaseTrait
      * Sets the element value at the specified offset to null.
      * This method is required by the SPL interface ArrayAccess.
      * It is implicitly called when you use something like `unset($collection[$offset])`.
-     *
      * @param mixed $offset the offset to unset element
      */
     public function offsetUnset($offset)
@@ -328,7 +305,6 @@ trait BaseTrait
     /**
      * Method for IteratorAggregate interface.
      * Enables foreach'ing the object.
-     *
      * @return ArrayIterator
      */
     public function getIterator()

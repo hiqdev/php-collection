@@ -1,6 +1,5 @@
 <?php
-
-/*
+/**
  * Collection library for PHP
  *
  * @link      https://github.com/hiqdev/php-collection
