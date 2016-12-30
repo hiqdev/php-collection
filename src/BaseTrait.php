@@ -93,14 +93,13 @@ trait BaseTrait
 
     /**
      * Returns item by name.
-     *
      * @param string $name item name.
-     *
-     * @return mixed item value.
+     * @param mixed $default default value.
+     * @return mixed item value or default.
      */
-    public function getItem($name)
+    public function getItem($name, $default = null)
     {
-        return $this->_items[$name];
+        return isset($this->_items[$name]) ? $this->_items[$name] : $default;
     }
 
     /**
