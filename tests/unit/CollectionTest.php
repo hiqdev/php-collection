@@ -15,7 +15,7 @@ use hiqdev\php\collection\Collection;
 /**
  * Collection test suite.
  */
-class CollectionTest extends \PHPUnit_Framework_TestCase
+class CollectionTest extends \PHPUnit\Framework\TestCase
 {
     use CollectionTestTrait;
 

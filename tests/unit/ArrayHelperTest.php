@@ -15,7 +15,7 @@ use hiqdev\php\collection\ArrayHelper;
 /**
  * ArrayHelper test suite.
  */
-class ArrayHelperTest extends \PHPUnit_Framework_TestCase
+class ArrayHelperTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @test
@@ -52,7 +52,7 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
             'bar',
             'baz',
         ];
-        
+
         $actual = ArrayHelper::merge($a, $b, $c);
         $expected = [
             'foo' => 'bar',
@@ -69,10 +69,10 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
             'bar',
             'baz',
         ];
-        
+
         $this->assertEquals($expected, $actual);
     }
-    
+
     /**
      * @test
      */
@@ -82,15 +82,15 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
             'foo' => 'bar',
             'bar' => 'qux',
         ];
-        
+
         $actual = ArrayHelper::getItems($data, 'foo');
         $expected = [
             'bar' => 'qux',
         ];
-        
+
         $this->assertEquals($expected, $actual);
     }
-    
+
     /**
      * @test
      */
@@ -100,28 +100,28 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
             'foo' => 'bar',
             'bar' => 'qux',
         ];
-        
+
         $items = [
             'bar' => 'foo',
             'qux' => 'bar',
         ];
-        
+
         $expected = [
             'foo' => 'bar',
             'bar' => 'foo',
             'qux' => 'bar',
         ];
-        
+
         $actual = ArrayHelper::insertInside($data, $items, []);
         $this->assertEquals($expected, $actual);
-        
+
         $actual = ArrayHelper::insertInside($data, $items, ['before' => 'foo']);
         $this->assertEquals($expected, $actual);
-        
+
         $actual = ArrayHelper::insertInside($data, $items, ['after' => 'foo']);
         $this->assertEquals($expected, $actual);
     }
-    
+
     /**
      * @test
      */
@@ -136,7 +136,7 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
                 'foo' => 'bar',
             ],
         ];
-        
+
         $actual = ArrayHelper::unique($data);
         $expected = [
             0 => 'foo',
@@ -145,10 +145,10 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
                 'foo' => 'bar',
             ],
         ];
-        
+
         $this->assertEquals($expected, $actual);
     }
-    
+
     /**
      * @test
      */
@@ -163,7 +163,7 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
                 'foo',
             ],
         ];
-        
+
         $actual = ArrayHelper::uniqueFlat($data);
         $expected = [
             0 => 'foo',
@@ -173,10 +173,10 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
                 'foo',
             ],
         ];
-        
+
         $this->assertEquals($expected, $actual);
     }
-    
+
     /**
      * @test
      */
@@ -189,7 +189,7 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
                 'bar' => true,
             ],
         ];
-        
+
         $actual = ArrayHelper::toArray($data);
         $expected = [
             'foo' => false,
@@ -198,7 +198,7 @@ class ArrayHelperTest extends \PHPUnit_Framework_TestCase
                 'bar' => true,
             ],
         ];
-        
+
         $this->assertEquals($expected, $actual);
     }
 }
