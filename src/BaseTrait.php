@@ -14,6 +14,10 @@ use ArrayIterator;
 
 /**
  * Base Trait.
+ * Provides methods for iterfaces:
+ * - ArrayAccess: offsetExists, offsetGet, offsetSet, offsetUnset
+ * - IteratorAggregate: getIterator
+ * - yii\base\Arrayable: fields, extraFields, toArray
  *
  * @author Andrii Vasyliev <sol@hiqdev.com>
  */
