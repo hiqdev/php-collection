@@ -311,6 +311,7 @@ trait BaseTrait
      * Enables foreach'ing the object.
      * @return ArrayIterator
      */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new ArrayIterator($this->_items);
