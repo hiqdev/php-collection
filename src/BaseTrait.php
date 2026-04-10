@@ -254,9 +254,21 @@ trait BaseTrait
      * Returns number of items in the collection.
      * @return int
      */
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return count($this->_items);
+    }
+
+    /**
+     * Specify data which should be serialized to JSON.
+     * This method is required by the `JsonSerializable` interface.
+     * @return array
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize()
+    {
+        return $this->_items;
     }
 
     /**

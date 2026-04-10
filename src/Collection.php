@@ -11,12 +11,14 @@
 namespace hiqdev\php\collection;
 
 use ArrayAccess;
+use Countable;
 use IteratorAggregate;
+use JsonSerializable;
 
 /**
  * Collection class.
  */
-class Collection implements ArrayAccess, IteratorAggregate
+class Collection implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
 {
     use CollectionTrait;
 

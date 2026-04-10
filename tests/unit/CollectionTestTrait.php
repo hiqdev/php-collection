@@ -178,4 +178,23 @@ trait CollectionTestTrait
         $this->assertFalse($this->sample->hasItem('first'));
         $this->assertFalse($this->sample->hasItem('last'));
     }
+
+    public function testCountable()
+    {
+        $this->assertCount(count($this->items), $this->sample);
+        $this->assertEquals(count($this->items), count($this->sample));
+    }
+
+    public function testJsonSerializable()
+    {
+        $json = json_encode($this->sample);
+        $this->assertNotFalse($json);
+        $decoded = json_decode($json, true);
+        $this->assertEquals($this->items, $decoded);
+    }
+
+    public function testJsonSerializeMethod()
+    {
+        $this->assertEquals($this->items, $this->sample->jsonSerialize());
+    }
 }
