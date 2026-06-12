@@ -100,13 +100,13 @@ trait BaseTrait
     }
 
     /**
-     * Check collection has the item.
-     * @param string $name item name
+     * Check the collection has the item.
+     * @param string|null $name item name
      * @return bool whether item exist
      */
     public function hasItem($name)
     {
-        return array_key_exists($name, $this->_items);
+        return $name && array_key_exists($name, $this->_items);
     }
 
     public function mergeItem($name, array $value)
