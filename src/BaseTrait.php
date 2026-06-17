@@ -106,7 +106,7 @@ trait BaseTrait
      */
     public function hasItem($name)
     {
-        return $name && array_key_exists($name, $this->_items);
+        return $name !== null && array_key_exists($name, $this->_items);
     }
 
     public function mergeItem($name, array $value)
