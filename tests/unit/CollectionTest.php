@@ -24,12 +24,12 @@ class CollectionTest extends \PHPUnit\Framework\TestCase
      */
     protected $sample;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->sample = new Collection($this->items);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         $this->sample = null;
     }

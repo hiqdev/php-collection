@@ -11,15 +11,14 @@
 namespace hiqdev\php\collection\tests\unit;
 
 use hiqdev\php\collection\ArrayHelper;
+use PHPUnit\Framework\Attributes\Test;
 
 /**
  * ArrayHelper test suite.
  */
 class ArrayHelperTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @test
-     */
+    #[Test]
     public function merge()
     {
         $a = [
@@ -73,9 +72,7 @@ class ArrayHelperTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getItems()
     {
         $data = [
@@ -91,9 +88,7 @@ class ArrayHelperTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function insertInside()
     {
         $data = [
@@ -122,9 +117,7 @@ class ArrayHelperTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function unique()
     {
         $data = [
@@ -149,9 +142,7 @@ class ArrayHelperTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function uniqueFlat()
     {
         $data = [
@@ -177,9 +168,7 @@ class ArrayHelperTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($expected, $actual);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function toArray()
     {
         $data = (object)[

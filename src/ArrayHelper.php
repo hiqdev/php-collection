@@ -165,7 +165,7 @@ class ArrayHelper
             $list = [$list];
         }
         foreach ($list as $v) {
-            if (array_key_exists($v, $array)) {
+            if (array_key_exists($v ?? '', $array)) {
                 return $v;
             }
         }
