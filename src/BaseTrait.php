@@ -266,8 +266,7 @@ trait BaseTrait
      * @param mixed $offset the offset to retrieve element
      * @return mixed the element at the offset, null if no element is found at the offset
      */
-    #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         return $this->getItem($offset);
     }
@@ -279,8 +278,7 @@ trait BaseTrait
      * @param int   $offset the offset to set element
      * @param mixed $value  the element value
      */
-    #[\ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         $this->setItem($offset, $value);
     }
@@ -292,8 +290,7 @@ trait BaseTrait
      * @param mixed $offset the offset to check on
      * @return bool
      */
-    #[\ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
         return $this->hasItem($offset);
     }
@@ -304,8 +301,7 @@ trait BaseTrait
      * It is implicitly called when you use something like `unset($collection[$offset])`.
      * @param mixed $offset the offset to unset element
      */
-    #[\ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset(mixed $offset): void
     {
         $this->unsetItem($offset);
     }
