@@ -15,6 +15,9 @@ use IteratorAggregate;
 
 /**
  * Collection class.
+ *
+ * @implements ArrayAccess<array-key, mixed>
+ * @implements IteratorAggregate<array-key, mixed>
  */
 class Collection implements ArrayAccess, IteratorAggregate
 {

@@ -36,6 +36,7 @@ class ArrayHelper
     public static function merge($a, $b)
     {
         $args = func_get_args();
+        /** @var array $res */
         $res = array_shift($args);
         foreach ($args as $items) {
             if (!is_array($items)) {
@@ -61,7 +62,8 @@ class ArrayHelper
 
     /**
      * Get specified items as array.
-     * @param mixed $keys specification
+     * @param array $array
+     * @param int|string|array|null $keys specification
      * @return array
      */
     public static function getItems($array, $keys = null)
@@ -86,7 +88,7 @@ class ArrayHelper
      */
     public static function insertLast(array $array, array $items)
     {
-        foreach ($items as $k => $v) {
+        foreach (array_keys($items) as $k) {
             unset($array[$k]);
         }
         foreach ($items as $k => $v) {
@@ -121,7 +123,7 @@ class ArrayHelper
      */
     public static function insertInside(array $array, $items, $where)
     {
-        foreach ($items as $k => $v) {
+        foreach ($items as $k => $_) {
             unset($array[$k]);
         }
         $before = self::prepareWhere($array, isset($where['before']) ? $where['before'] : null);
@@ -157,7 +159,7 @@ class ArrayHelper
      * Internal function to prepare where list for insertInside.
      * @param array        $array source array
      * @param array|string $list  array to convert
-     * @return array
+     * @return mixed the first key of $list found in $array, or null
      */
     protected static function prepareWhere(array $array, $list)
     {

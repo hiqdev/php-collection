@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files psalm-version="6.21.4@72023213487628df0bc5b2e02d68cbac614b7ef5">
+  <file src="src/BaseTrait.php">
+    <LessSpecificImplementedReturnType>
+      <code><![CDATA[ArrayIterator]]></code>
+    </LessSpecificImplementedReturnType>
+  </file>
+  <file src="src/CollectionTrait.php">
+    <ParentNotFound>
+      <code><![CDATA[parent::__isset($name)]]></code>
+    </ParentNotFound>
+  </file>
+  <file src="src/yii/ManagerTrait.php">
+    <PossiblyUnusedParam>
+      <code><![CDATA[$config]]></code>
+      <code><![CDATA[$name]]></code>
+    </PossiblyUnusedParam>
+    <UndefinedClass>
+      <code><![CDATA[Yii]]></code>
+    </UndefinedClass>
+    <UnsupportedPropertyReferenceUsage>
+      <code><![CDATA[$item = &$this->_items[$name]]]></code>
+    </UnsupportedPropertyReferenceUsage>
+  </file>
+</files>

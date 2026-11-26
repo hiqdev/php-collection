@@ -53,6 +53,19 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^12"
+        "phpunit/phpunit": "^12",
+        "vimeo/psalm": "^6.0",
+        "yiisoft/yii2": "^2.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
     }
 }

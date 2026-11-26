@@ -13,6 +13,9 @@ namespace hiqdev\php\collection\yii;
 /**
  * Manager Component.
  * Instantiates all it's items when getting.
+ *
+ * @implements \ArrayAccess<array-key, mixed>
+ * @implements \IteratorAggregate<array-key, mixed>
  */
 class Manager extends \yii\base\Component implements \ArrayAccess, \IteratorAggregate, \yii\base\Arrayable
 {

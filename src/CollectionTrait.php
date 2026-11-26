@@ -90,8 +90,7 @@ trait CollectionTrait
     /**
      * This method is overridden to support accessing items like properties.
      * @param string $name  item or property name
-     * @param string $value value to be set
-     * @return mixed item of found or the named property value
+     * @param mixed  $value value to be set
      */
     public function __set($name, $value)
     {
@@ -113,7 +112,6 @@ trait CollectionTrait
      * Checks if a property value is null.
      * This method overrides the parent implementation by checking if the named item is loaded.
      * @param string $name the property name or the event name
-     * @return bool whether the property value is null
      */
     public function __unset($name)
     {
