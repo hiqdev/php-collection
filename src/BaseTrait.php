@@ -75,9 +75,9 @@ trait BaseTrait
 
     /**
      * Sets an item. Silently resets if already exists and mov.
-     * @param string       $name  item name
-     * @param array        $value item value
-     * @param string|array $where where to put, can be empty, first, last and array of before and after
+     * @param int|string|null $name  item name
+     * @param array           $value item value
+     * @param string|array    $where where to put, can be empty, first, last and array of before and after
      */
     public function setItem($name, $value = null, $where = '')
     {
@@ -208,8 +208,7 @@ trait BaseTrait
 
     /**
      * Unset specified items.
-     * @param mixed $keys specification
-     * @return array list of items
+     * @param int|string|array|null $keys specification
      */
     public function unsetItems($keys = null)
     {

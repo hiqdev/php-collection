@@ -12,6 +12,9 @@ namespace hiqdev\php\collection\yii;
 
 /**
  * Component with collection.
+ *
+ * @implements \ArrayAccess<array-key, mixed>
+ * @implements \IteratorAggregate<array-key, mixed>
  */
 class Component extends \yii\base\Component implements \ArrayAccess, \IteratorAggregate, \yii\base\Arrayable
 {

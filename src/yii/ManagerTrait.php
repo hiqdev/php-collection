@@ -87,7 +87,7 @@ trait ManagerTrait
      */
     public function getItems()
     {
-        foreach ($this->_items as $name => $item) {
+        foreach (array_keys($this->_items) as $name) {
             $this->getItem($name);
         }
 
